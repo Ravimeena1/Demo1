@@ -1,0 +1,21 @@
+<form method="post" action="">
+    {% csrf_token %}
+     <h4>you can use filter :</h4>
+
+    {{filter.form}}
+    <button type="submit">search</button>
+    <br>
+    {{positions.as_p}}
+    {% for pos in positions %}
+    <tr>
+        
+        <td> {{pos.id}}</td>
+        <td> {{pos.name}}</td>
+    
+        <td><a href="{% url 'update_pos' pos.id %}">update</a></td>
+        <td><a href="{% url 'delete_pos' pos.id %}  ">delete</a></td>
+   </tr>
+   <br>
+   <br>
+   {%endfor%}
+</form>

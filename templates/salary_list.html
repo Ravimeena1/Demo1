@@ -1,0 +1,22 @@
+<form method="post" action="">
+    {% csrf_token %}
+    <h4>you can use filter :</h4>
+
+    {{filter.form}}
+    <button type="submit">search</button>
+    <br>
+    {{salary.as_p}}
+    {% for sal in salary %}
+    <tr>
+        
+        <td> {{sal.id}}</td>
+       
+    
+        <td><a href="{% url 'update_sal' sal.id %}">update</a></td>
+        <td><a href="{% url 'delete_sal' sal.id %}  ">delete</a></td>
+        
+   </tr>
+   <br>
+   <br>
+   {%endfor%}
+</form>

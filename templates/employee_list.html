@@ -1,0 +1,18 @@
+<form method="post" action="">
+    {% csrf_token %}
+    {{employee.as_p}}
+    {% for emp in employee %}
+    <tr>
+        
+        <td> {{emp.id}}</td>
+        <td> {{emp.user.username}}</td>
+    
+        <td><a href="{% url 'update_emp' emp.id %}  ">update</a></td>
+        <td><a href="{% url 'delete_emp' emp.id %}  ">delete</a></td>
+        
+        
+   </tr>
+   <br>
+   <br>
+   {%endfor%}
+</form>

@@ -1,0 +1,23 @@
+<form method="post" action="">
+    {% csrf_token %}
+    {{leaves.as_p}}
+    <h4>you can use filter :</h4>
+
+    {{filter.form}}
+    <button type="submit">search</button>
+    <br>
+
+    {% for leave in leaves %}
+    <tr>
+      
+        <td> {{leave.id}}</td>
+        <td> {{leave.emp_id.}}</td>
+    
+        <td><a href="{% url 'update_leave' leave.id %}">update</a></td>
+        <td><a href="{% url 'delete_leave' leave.id %}  ">delete</a></td>
+        
+   </tr>
+   <br>
+   <br>
+   {%endfor%}
+</form>
